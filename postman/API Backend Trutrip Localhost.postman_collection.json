@@ -1,0 +1,307 @@
+{
+	"info": {
+		"_postman_id": "998f2574-ace3-42f9-b846-7ce29b9ded14",
+		"name": "API Backend Trutrip Localhost",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Add Trip",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3VzZXIvbG9naW4iLCJpYXQiOjE2NTI2MjIxNjIsIm5iZiI6MTY1MjYyMjE2MiwianRpIjoibHFRRzk5M1Z4VUE1eFJwMCIsInN1YiI6MywicHJ2IjoiYmExY2I2NjhlNGIyY2IyMWMwZGY0OTEyMGQ3NTI3Y2EyNzEwOGUyMiJ9.THCi2FDwj3B0Zdf8YWrecW70OXXDO11xMsJVQKijEBE",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "title",
+							"value": "mouse XXZ",
+							"type": "text"
+						},
+						{
+							"key": "where[origin]",
+							"value": "jakarta",
+							"type": "text"
+						},
+						{
+							"key": "where[destination]",
+							"value": "medan",
+							"type": "text"
+						},
+						{
+							"key": "schedule[start]",
+							"value": "2022-02-02 17:22:05",
+							"type": "text"
+						},
+						{
+							"key": "schedule[end]",
+							"value": "2022-02-09 19:22:05",
+							"type": "text"
+						},
+						{
+							"key": "type",
+							"value": "pulang-pergi",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "make pesawat garuda",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/trip",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"trip"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "mouse M DX",
+							"disabled": true
+						},
+						{
+							"key": "code",
+							"value": "007",
+							"disabled": true
+						},
+						{
+							"key": "price",
+							"value": "80000",
+							"disabled": true
+						},
+						{
+							"key": "qty",
+							"value": "50",
+							"disabled": true
+						},
+						{
+							"key": "desc",
+							"value": "cool mouse",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Trip",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3VzZXIvbG9naW4iLCJpYXQiOjE2NTI2MjIxNjIsIm5iZiI6MTY1MjYyMjE2MiwianRpIjoibHFRRzk5M1Z4VUE1eFJwMCIsInN1YiI6MywicHJ2IjoiYmExY2I2NjhlNGIyY2IyMWMwZGY0OTEyMGQ3NTI3Y2EyNzEwOGUyMiJ9.THCi2FDwj3B0Zdf8YWrecW70OXXDO11xMsJVQKijEBE",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "title",
+							"value": "trip trip X",
+							"type": "text"
+						},
+						{
+							"key": "where[origin]",
+							"value": "jakarta",
+							"type": "text"
+						},
+						{
+							"key": "where[destination]",
+							"value": "medan",
+							"type": "text"
+						},
+						{
+							"key": "schedule[start]",
+							"value": "2022-02-02 17:22:05",
+							"type": "text"
+						},
+						{
+							"key": "schedule[end]",
+							"value": "2022-02-09 19:22:05",
+							"type": "text"
+						},
+						{
+							"key": "type",
+							"value": "pulang-pergi",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "make pesawat garuda",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/trip/1?title=trip trip x&where[origin]=jakarta&where[destination]=medan&type=pulang-pergi&schedule[start]=2022-02-02 17:22:05&schedule[end]=2022-02-09 19:22:05&description=make pesawat garuda",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"trip",
+						"1"
+					],
+					"query": [
+						{
+							"key": "title",
+							"value": "trip trip x"
+						},
+						{
+							"key": "where[origin]",
+							"value": "jakarta"
+						},
+						{
+							"key": "where[destination]",
+							"value": "medan"
+						},
+						{
+							"key": "type",
+							"value": "pulang-pergi"
+						},
+						{
+							"key": "schedule[start]",
+							"value": "2022-02-02 17:22:05"
+						},
+						{
+							"key": "schedule[end]",
+							"value": "2022-02-09 19:22:05"
+						},
+						{
+							"key": "description",
+							"value": "make pesawat garuda"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "username",
+							"value": "dana88",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "dana88",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/user/login",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"user",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Trip",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3VzZXIvbG9naW4iLCJpYXQiOjE2NTI2MjIxNjIsIm5iZiI6MTY1MjYyMjE2MiwianRpIjoibHFRRzk5M1Z4VUE1eFJwMCIsInN1YiI6MywicHJ2IjoiYmExY2I2NjhlNGIyY2IyMWMwZGY0OTEyMGQ3NTI3Y2EyNzEwOGUyMiJ9.THCi2FDwj3B0Zdf8YWrecW70OXXDO11xMsJVQKijEBE",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/api/trip",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"trip"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Trip",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3VzZXIvbG9naW4iLCJpYXQiOjE2NTI2MjIxNjIsIm5iZiI6MTY1MjYyMjE2MiwianRpIjoibHFRRzk5M1Z4VUE1eFJwMCIsInN1YiI6MywicHJ2IjoiYmExY2I2NjhlNGIyY2IyMWMwZGY0OTEyMGQ3NTI3Y2EyNzEwOGUyMiJ9.THCi2FDwj3B0Zdf8YWrecW70OXXDO11xMsJVQKijEBE",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/api/trip/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"trip",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
