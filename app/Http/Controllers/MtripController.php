@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Trip;
 use Illuminate\Http\Request;
 use Validator;
+use Illuminate\Support\Facades\Cache;
 
 class MtripController extends Controller
 {
@@ -15,7 +16,21 @@ class MtripController extends Controller
      */
     public function index()
     {
-        $data = Trip::latest()->get();
+		$trip_arr = [];
+		if(Cache::get("trip")){
+			$trip_arr = Cache::get("trip");
+		}
+		if(count($trip_arr)>0)
+		{
+			
+			$data = $trip_arr;
+		}
+		else
+		{
+			$data = $trip_arr;
+			$data = Trip::latest()->get();
+			Cache::put("trip",$data);
+		}
 		
 		return response()->json(['result'=>$data]);
     }
@@ -62,6 +77,8 @@ class MtripController extends Controller
 				$trip->description  = $request->description;
 			}
 			$trip->save();
+			$data = Trip::latest()->get();
+			Cache::put("trip",$data);
 
             return response()->json(['success'=>'Added new record.']);
 
@@ -115,8 +132,10 @@ class MtripController extends Controller
 		
 		
 		if ($validator->passes()) {
-			
 			$trip = Trip::find($id);
+			if(count((array) $trip) == 0){
+				 return response()->json(['failed'=>'Data is not found.']); 
+			}
 			$trip->title  = $request->title;
 			$trip->origin = ($request->where)["origin"];
 			$trip->destination  = ($request->where)["destination"];
@@ -127,6 +146,9 @@ class MtripController extends Controller
 				$trip->description  = $request->description;
 			}
 			$trip->save();
+			
+			$data = Trip::latest()->get();
+			Cache::put("trip",$data);
 
             return response()->json(['success'=>'Update existing record.']);
 
@@ -145,9 +167,17 @@ class MtripController extends Controller
      */
     public function destroy($id)
     {
-        if(trip::destroy($id))
-             return response()->json(['success'=>'Delete existing record.']);
-		 
-		 return response()->json(['success'=>'Record not exists.']);
+        if(trip::destroy($id)){
+			
+			$trip_arr = [];
+			if(Cache::get("trip")){
+				$trip_arr = Cache::get("trip");
+			} 
+			$data = Trip::latest()->get();
+			Cache::put("trip",$data);
+			return response()->json(['success'=>'Delete existing record.']);
+		}
+ 		 
+		return response()->json(['failed'=>'Record not exists.']);
     }
 }
